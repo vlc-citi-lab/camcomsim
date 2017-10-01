@@ -1,0 +1,13 @@
+<code_scheme name="Project">
+    <option name="VISIBILITY" value="private"/>
+    <option name="JD_KEEP_EMPTY_LINES" value="false"/>
+    <codeStyleSettings language="JAVA">
+        <option name="RIGHT_MARGIN" value="120"/>
+        <option name="KEEP_LINE_BREAKS" value="true"/>
+        <option name="KEEP_FIRST_COLUMN_COMMENT" value="false"/>
+        <option name="KEEP_CONTROL_STATEMENT_IN_ONE_LINE" value="false"/>
+        <option name="IF_BRACE_FORCE" value="3"/>
+        <option name="WRAP_LONG_LINES" value="true"/>
+        <option name="WRAP_ON_TYPING" value="1"/>
+    </codeStyleSettings>
+</code_scheme>

@@ -1,0 +1,15 @@
+{
+  "simuGenerationSizeByte": 50,
+  "simuStrategy": "REPEAT_PACKET_STRATEGY",
+  "simuNbRepeatPhysdu": 1,
+  "simuNbIteration": 1,
+  "camFrameIntervalMs": 33.3,
+  "camIFGRatio": 0.2,
+  "camPDecodeError": 0.01,
+  "chanDistanceCm": 0,
+  "physduMaxLen": 0,
+  "physduPayloadLen": 16,
+  "physduHeaderLen": 8,
+  "ledTxFreqHz": 8000,
+  "ledRll": "RLL_MANCHESTER"
+}

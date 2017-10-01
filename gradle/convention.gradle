@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+sourceCompatibility = 1.8
+
+task sourcesJar(type: Jar, dependsOn:classes) {
+    from sourceSets.main.allSource
+    classifier 'sources'
+    extension 'jar'
+}
+
+task javadocJar(type: Jar, dependsOn:javadoc) {
+    from javadoc.destinationDir
+    classifier 'javadoc'
+    extension 'jar'
+}
+
+apply plugin: 'org.ajoberstar.git-publish'
+
+gitPublish {
+    repoUri = "git@github.com:alexisduque/${rootProject.githubProjectName}.git"
+    branch = 'gh-pages'
+
+    // what to publish, this is a standard CopySpec
+    contents {
+        // from 'src/pages'
+        from(javadoc) {
+            into "docs/${version}"
+        }
+    }
+
+    // what to keep in the existing branch (include=keep)
+    preserve {
+        include '1.0.0/**'
+        exclude '1.0.0/temp.txt'
+    }
+
+    commitMessage = 'Publishing a new page'
+}
+
+// Generate wrapper, which is distributed as part of source to alleviate the need of installing gradle
+task createWrapper(type: Wrapper) {
+    gradleVersion = '3.3'
+}
