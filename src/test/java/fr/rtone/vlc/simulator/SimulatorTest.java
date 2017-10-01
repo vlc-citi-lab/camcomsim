@@ -14,6 +14,7 @@ package fr.rtone.vlc.simulator;
 
 import fr.rtone.vlc.simulator.scenario.RsScenario;
 import fr.rtone.vlc.simulator.scenario.Scenario;
+import fr.rtone.vlc.simulator.utils.SimulationParameters;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;

@@ -18,6 +18,9 @@ import fr.rtone.vlc.simulator.strategy.AbstractStrategy;
 import fr.rtone.vlc.simulator.topology.Camera;
 import fr.rtone.vlc.simulator.topology.Channel;
 import fr.rtone.vlc.simulator.topology.Led;
+import fr.rtone.vlc.simulator.utils.SimulationParameters;
+import fr.rtone.vlc.simulator.utils.SimulationResult;
+import fr.rtone.vlc.simulator.utils.SimulationResultBuilder;
 import kotlin.Pair;
 
 import java.util.ArrayList;

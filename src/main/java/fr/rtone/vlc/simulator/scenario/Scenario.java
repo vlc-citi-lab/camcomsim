@@ -12,7 +12,7 @@
  */
 package fr.rtone.vlc.simulator.scenario;
 
-import fr.rtone.vlc.simulator.SimulationParameters;
+import fr.rtone.vlc.simulator.utils.SimulationParameters;
 
 public interface Scenario {
 

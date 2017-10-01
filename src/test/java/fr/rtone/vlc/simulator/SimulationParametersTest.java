@@ -14,6 +14,7 @@ package fr.rtone.vlc.simulator;
 
 import fr.rtone.vlc.simulator.strategy.RepeatStrategy;
 import fr.rtone.vlc.simulator.topology.Led;
+import fr.rtone.vlc.simulator.utils.SimulationParameters;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

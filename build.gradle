@@ -44,7 +44,7 @@ task cliJar(type: Jar, dependsOn:classes) {
     }
 
     manifest {
-        attributes 'Main-Class': 'fr.rtone.vlc.simulator.SimulatorCLI'
+        attributes 'Main-Class': 'fr.rtone.vlc.simulator.ui.SimulatorCLI'
         attributes 'Git-Version' : getVersionName()
         attributes('Implementation-Title': project.name,
                 'Implementation-Version': project.version,

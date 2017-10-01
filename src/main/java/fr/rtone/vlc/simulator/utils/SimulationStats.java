@@ -12,7 +12,6 @@
  */
 package fr.rtone.vlc.simulator.utils;
 
-import fr.rtone.vlc.simulator.SimulationResult;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 import java.util.ArrayList;

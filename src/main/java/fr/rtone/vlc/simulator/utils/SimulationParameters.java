@@ -10,7 +10,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package fr.rtone.vlc.simulator;
+package fr.rtone.vlc.simulator.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -65,6 +65,10 @@ public class SimulationParameters {
     private String savePath;
     @Expose
     private int verbose;
+    @Expose
+    private String stopCondition;
+    private Boolean stopWhenCompleted;
+    private int maxEvent;
 
 
     public SimulationParameters() {
@@ -84,6 +88,7 @@ public class SimulationParameters {
         setPhysduPayloadLen(16);
         setVerbose(1);
         setSimuScenario("RsScenario");
+        setSimuStopCondition("50000X");
     }
 
     public static SimulationParameters fromFile(String file) {
@@ -257,7 +262,8 @@ public class SimulationParameters {
                 ", camPDecodeError: " + camPDecodeError + ", chanDistanceCm: " + chanDistanceCm + ", physduMaxLen: "
                 + physduMaxLen + ", physduPayloadLen: " + physduPayloadLen + ", physduHeaderLen: " + physduHeaderLen
                 + ", ledTxFreqHz: " + ledTxFreqHz + ", ledRll: " + ledRll.toString() + ", filePath: " + savePath + "," +
-                " saveResult: " + String.valueOf(saveResult) + ", verbose:" + verbose + " }";
+                " saveResult: " + String.valueOf(saveResult) + ", verbose:" + verbose + ", stopCondition:" +
+                stopCondition + " }";
     }
 
     public boolean isSaveResult() {
@@ -290,5 +296,22 @@ public class SimulationParameters {
 
     public void setSimuScenario(String simuScenario) {
         this.simuScenario = simuScenario;
+    }
+
+    private String getSimuStopCondition() {
+        return stopCondition;
+    }
+
+    public void setSimuStopCondition(String stopCondition) {
+        this.stopCondition = stopCondition;
+        if (stopCondition.contains("X")) {
+            this.stopWhenCompleted = true;
+        }
+        stopCondition.replace("X", "").replace("x", "");
+        try {
+            this.maxEvent = Integer.parseInt(stopCondition);
+        } catch (NumberFormatException e) {
+            this.maxEvent = 0;
+        }
     }
 }

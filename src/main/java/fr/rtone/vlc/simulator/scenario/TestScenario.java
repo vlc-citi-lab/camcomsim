@@ -12,18 +12,13 @@
  */
 package fr.rtone.vlc.simulator.scenario;
 
-import fr.rtone.vlc.simulator.SimulationBuilder;
-import fr.rtone.vlc.simulator.SimulationParameters;
-import fr.rtone.vlc.simulator.SimulationResult;
 import fr.rtone.vlc.simulator.network.Message;
 import fr.rtone.vlc.simulator.network.Physdu;
 import fr.rtone.vlc.simulator.strategy.RepeatStrategy;
 import fr.rtone.vlc.simulator.topology.Camera;
 import fr.rtone.vlc.simulator.topology.Channel;
 import fr.rtone.vlc.simulator.topology.Led;
-import fr.rtone.vlc.simulator.utils.GenerationBuilder;
-import fr.rtone.vlc.simulator.utils.JsonIO;
-import fr.rtone.vlc.simulator.utils.SimulationStats;
+import fr.rtone.vlc.simulator.utils.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,16 +42,16 @@ public class TestScenario implements Scenario {
     private SimulationParameters buildDefaultParams() {
         SimulationParameters simuParams = new SimulationParameters();
         simuParams.setCamFrameIntervalMs(33.3f);
-        simuParams.setCamIFGRatio(0.28f);
+        simuParams.setCamIFGRatio(0.1f);
         simuParams.setLedTxFreqHz(8000);
         simuParams.setLedRll(Led.Rll.RLL_MANCHESTER);
-        simuParams.setPhysduPayloadLen(16);
+        simuParams.setPhysduPayloadLen(19);
         simuParams.setSimuGenerationSizeByte(50);
-        simuParams.setPhysduHeaderLen(8);
+        simuParams.setPhysduHeaderLen(5);
         simuParams.setSimuNbRepeatPhysdu(1);
         simuParams.setCamPDecodeError(0.01d);
         simuParams.setSaveResult(false);
-        simuParams.setSimuNbIteration(10);
+        simuParams.setSimuNbIteration(300);
         this.simulationParameters = simuParams;
         return simuParams;
     }

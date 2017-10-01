@@ -21,7 +21,7 @@ P = [8, 12, 16, 20, 24, 32, 64]
 H = [0, 4, 8]
 F = [6000, 8000, 10000]
 G = [50, 100, 200, 1000]
-IFG = 0.08
+IFG = 0.1
 OUTPUT = './simu_result/'
 
 #Run the simulation 270817
@@ -36,7 +36,7 @@ for g in G:
                 for rp in RP:
                     for d in D:
                         args = ['simulator-1.0-SNAPSHOT.jar', '-v0', '-s', '-file={}'.format(OUTPUT),
-                                '-ifg={}'.format(IFG), '-i{}'.format(NB_ITERATION), '-r{}'.format(rp), '-P{}'.format(p),
+                                '-df={}'.format(IFG), '-i{}'.format(NB_ITERATION), '-r{}'.format(rp), '-P{}'.format(p),
                                 '-H{}'.format(h), '-d{}'.format(d), '-F{}'.format(f), '-G{}'.format(g),
-                                '-e0.00001']  # Any number of args to be passed to the jar file
+                                '-e0.0001']
                         result = jarWrapper(*args)

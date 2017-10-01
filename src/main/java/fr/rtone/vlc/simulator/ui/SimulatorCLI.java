@@ -10,11 +10,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package fr.rtone.vlc.simulator;
+package fr.rtone.vlc.simulator.ui;
 
 import fr.rtone.vlc.simulator.scenario.Scenario;
 import fr.rtone.vlc.simulator.strategy.AbstractStrategy;
 import fr.rtone.vlc.simulator.topology.Led;
+import fr.rtone.vlc.simulator.utils.SimulationParameters;
 import org.apache.commons.cli.*;
 
 import java.lang.reflect.InvocationTargetException;
@@ -81,9 +82,10 @@ public class SimulatorCLI {
         try {
             // parse the command line arguments
             simuParams.setChanDistanceCm(Integer.parseInt(line.getOptionValue("d", "-1")));
-            simuParams.setSimuScenario(line.getOptionValue("sc", "RsScenario"));
+            simuParams.setSimuScenario(line.getOptionValue("sc", "TestScenario"));
+            simuParams.setSimuStopCondition(line.getOptionValue("X", "50000X"));
             simuParams.setCamFrameIntervalMs(Float.parseFloat(line.getOptionValue("f", "33.3")));
-            simuParams.setCamIFGRatio(Float.parseFloat(line.getOptionValue("ifg", "0.2")));
+            simuParams.setCamIFGRatio(Float.parseFloat(line.getOptionValue("dg", "0.2")));
             simuParams.setLedTxFreqHz(Integer.parseInt(line.getOptionValue("F", "8000")));
             simuParams.setLedRll(Led.Rll.valueOf(line.getOptionValue("rll", "RLL_MANCHESTER")));
             simuParams.setSimuNbIteration(Integer.parseInt(line.getOptionValue("i", "1")));
@@ -120,17 +122,18 @@ public class SimulatorCLI {
     private static void addOption(Options options) {
         options.addOption("G", "generation", true, "The generation size in bytes.");
         options.addOption("S", "strategy", true, "The broadcast strategy. It can be RS, RP or RLC.");
-        options.addOption("si", "scenario", true, "The scenario implementation class name.");
+        options.addOption("sc", "scenario", true, "The scenario implementation class name.");
+        options.addOption("X", "stop", true, "The simulation stop condition.");
         options.addOption("r", "nb-repeat", true, "The number of PHYSDU repetition.");
         options.addOption("i", "nb-iteration", true, "The number of simulation run.");
         options.addOption("f", "frame-interval", true, "The frame period in ms.");
-        options.addOption("ifg", "ifg-ration", true, "The camera IFG ratio.");
-        options.addOption("e", "perror", true, "The decoder BER.");
+        options.addOption("dg", "ifg-ration", true, "The camera IFG ratio.");
+        options.addOption("e", "perror", true, "The decoder PER.");
         options.addOption("d", "distance", true, "The distance between Tx and Rx.");
         //options.addOption("p", "physdu", true, "The PHYSDU max data (include payload+header) len.");
         options.addOption("P", "payload", true, "The PHYSDU data payload len.");
         options.addOption("H", "header", true, "The PHYSDU data header len.");
-        options.addOption("F", "fequency", true, "The LED Tx clock rate.");
+        options.addOption("F", "frequency", true, "The LED Tx clock rate.");
         options.addOption("rll", "rll-code", true, "The RLL Code (Manchester or 4B6B).");
         options.addOption("s", "save", false, "Save the result.");
         options.addOption("file", "file-path", true, "Path of the log file.");

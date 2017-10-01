@@ -12,8 +12,8 @@
  */
 package fr.rtone.vlc.simulator.topology;
 
-import fr.rtone.vlc.simulator.SimulationParameters;
 import fr.rtone.vlc.simulator.scenario.RsScenario;
+import fr.rtone.vlc.simulator.utils.SimulationParameters;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
