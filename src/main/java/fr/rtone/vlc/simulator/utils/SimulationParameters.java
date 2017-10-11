@@ -314,4 +314,12 @@ public class SimulationParameters {
             this.maxEvent = 0;
         }
     }
+
+    public int getMaxEvent() {
+        return maxEvent;
+    }
+
+    public Boolean getStopWhenCompleted() {
+        return stopWhenCompleted;
+    }
 }

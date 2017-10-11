@@ -12,8 +12,8 @@
  */
 package fr.rtone.vlc.simulator;
 
-import fr.rtone.vlc.simulator.scenario.RsScenario;
 import fr.rtone.vlc.simulator.scenario.Scenario;
+import fr.rtone.vlc.simulator.scenario.TestScenario;
 import fr.rtone.vlc.simulator.utils.SimulationParameters;
 import org.junit.After;
 import org.junit.Before;
@@ -26,7 +26,7 @@ import org.junit.Test;
 public class SimulatorTest {
 
     SimulationParameters simuParams;
-    Scenario rsScenario;
+    Scenario testScenario;
 
     @Before
     public void before() throws Exception {
@@ -37,9 +37,9 @@ public class SimulatorTest {
         simuParams.setLedTxFreqHz(8000);
         simuParams.setSimuGenerationSizeByte(500);
         simuParams.setCamIFGRatio(0.2f);
-        simuParams.setVerbose(1);
+        simuParams.setVerbose(2);
         simuParams.setSimuNbIteration(1);
-        rsScenario = new RsScenario(simuParams);
+        testScenario = new TestScenario(simuParams);
     }
 
     @After
@@ -50,7 +50,7 @@ public class SimulatorTest {
     @Test
     @Ignore
     public void testRsScenario() throws Exception {
-        rsScenario.runSimulation();
+        testScenario.runSimulation();
     }
 
 

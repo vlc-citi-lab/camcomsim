@@ -12,7 +12,7 @@
  */
 package fr.rtone.vlc.simulator.topology;
 
-import fr.rtone.vlc.simulator.scenario.RsScenario;
+import fr.rtone.vlc.simulator.scenario.TestScenario;
 import fr.rtone.vlc.simulator.utils.SimulationParameters;
 import org.junit.After;
 import org.junit.Before;
@@ -30,7 +30,7 @@ import static org.junit.Assert.assertEquals;
 public class ChannelTest {
 
     private Channel channel;
-    private RsScenario rsScenario;
+    private TestScenario rsScenario;
     private SimulationParameters simuParams;
 
     @Before

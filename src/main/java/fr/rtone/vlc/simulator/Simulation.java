@@ -108,6 +108,20 @@ public class Simulation implements Callable<SimulationResult> {
         return this.channels.size();
     }
 
+    private Boolean shouldStop(Boolean rxSuccess, float events) {
+        int maxEvents = simuParams.getMaxEvent();
+        Boolean stopOnSucess = simuParams.getStopWhenCompleted();
+        if (rxSuccess && stopOnSucess)
+            return true;
+        if (events > maxEvents && maxEvents > 0)
+            return true;
+        if (maxEvents == 0 && !stopOnSucess) {
+            System.err.println("Invalid stop condition. Will never stop.");
+            return true;
+        }
+        return false;
+    }
+
     public SimulationResult run() {
 
         Random random = new Random(System.currentTimeMillis());
@@ -126,7 +140,7 @@ public class Simulation implements Callable<SimulationResult> {
         Led led = leds.get(0);
         Channel channel = channels.get(0);
         int MAX_DURATION_100US = 500000;
-        while (!isGenerationRx && duration100Us < MAX_DURATION_100US) {
+        while (!shouldStop(isGenerationRx, duration100Us)) {
             nbTx++;
             double error = random.nextDouble();
             Physdu physdu = strategy.nextPhysdu();
