@@ -121,7 +121,7 @@ public class SimulatorCLI {
 
     private static void addOption(Options options) {
         options.addOption("G", "generation", true, "The generation size in bytes.");
-        options.addOption("S", "strategy", true, "The broadcast strategy. It can be RS, RP or RLC.");
+        options.addOption("S", "strategy", true, "The broadcast strategy (REPEAT_PACKET_STRATEGY)");
         options.addOption("sc", "scenario", true, "The scenario implementation class name.");
         options.addOption("X", "stop", true, "The simulation stop condition.");
         options.addOption("r", "nb-repeat", true, "The number of PHYSDU repetition.");
@@ -134,7 +134,7 @@ public class SimulatorCLI {
         options.addOption("P", "payload", true, "The PHYSDU data payload len.");
         options.addOption("H", "header", true, "The PHYSDU data header len.");
         options.addOption("F", "frequency", true, "The LED Tx clock rate.");
-        options.addOption("rll", "rll-code", true, "The RLL Code (Manchester or 4B6B).");
+        options.addOption("rll", "rll-code", true, "The RLL Code (RLL_MANCHESTER).");
         options.addOption("s", "save", false, "Save the result.");
         options.addOption("file", "file-path", true, "Path of the log file.");
         options.addOption("h", "help", false, "Show this help.");

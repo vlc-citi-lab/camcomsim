@@ -5,7 +5,7 @@
 # https://gradle.org/
 # https://github.com/gradle/gradle
 #image: java:8
-image: fredriknordstrom/gradle-javafx:ci
+image: java:8
 stages:
   - test
   - build
