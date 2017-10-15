@@ -25,7 +25,7 @@ gitPublish {
     contents {
         // from 'src/pages'
         from(javadoc) {
-            into "docs/${version}"
+            into "  "
         }
     }
 
@@ -35,7 +35,7 @@ gitPublish {
         exclude '1.0.0/temp.txt'
     }
 
-    commitMessage = 'Publishing a new page'
+    commitMessage = 'Publishing new javadoc'
 }
 
 // Generate wrapper, which is distributed as part of source to alleviate the need of installing gradle
